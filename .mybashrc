@@ -1,5 +1,10 @@
-# https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
-source ~/git-prompt.sh
+if [ ! -e ~/git-prompt.sh ]; then
+    wget https://github.com/git/git/raw/master/contrib/completion/git-prompt.sh;
+fi
+
+if [ -e ~/git-prompt.sh ]; then
+    source ~/git-prompt.sh;
+fi
 
 export GIT_PS1_SHOWDIRTYSTATE=1
 PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
